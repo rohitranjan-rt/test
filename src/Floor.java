@@ -1,15 +1,22 @@
-public class BinarySearch {
+public class Floor {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        int arr[] = {2, 5, 7, 9, 11, 34, 56, 78, 90, 123, 567, 890};
-        int target = 90;
-        System.out.println(binarySearch(arr, target));
+        int arr[] = {2,3,5,9,14,16,18};
+        int target = 15;
+        System.out.println(floor(arr, target));
     }
 
-    static int binarySearch(int[] arr, int target) {
+    //return index of greatest no. <= target
+
+    static int floor(int[] arr, int target) {
         int start = 0;
         int end = arr.length - 1;
+
+        //if there is no smaller than the target
+        if(target < arr[start]){
+            return -1;
+        }
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
@@ -22,6 +29,6 @@ public class BinarySearch {
                 return mid;
             }
         }
-        return -1;
+        return arr[end];
     }
 }
